@@ -236,7 +236,7 @@ const SlideLayout = ({
         {/* Question */}
         {question && (
           <div className=" p-4 rounded-md space-y-4 border-2 border-green-300">
-            <pre className="font-semibold text-gray-800">{question.text}</pre>
+            <p className="font-semibold text-gray-800">{question.text}</p>
             <ul className="space-y-2">
               {question.options.map((option, index) => (
                 <li key={index} className="flex items-center space-x-2">
