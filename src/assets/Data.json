@@ -245,5 +245,132 @@
         "explanation": "العملية `**` معناها الأس (الرفع للقوة)، فـ 2 ** 7 = 49."
       }
     }
+  ],
+  "lec4": [
+    {
+      "title": "مقدمة عن if statement",
+      "subtitle": "إزاي نتحكم في مسار الكود بناءً على شرط",
+      "explanation": "\nجملة if بتخليك تاخد قرارات داخل البرنامج.\nيعني لو شرط معين اتحقق، ينفذ كود، ولو الشرط ما تحققش، يتجاهله.\n\nالصيغة العامة:\n```\nif شرط:\n    كود يتنفذ لو الشرط True\n```\n\nمثال بسيط:",
+      "code": "x = 5\nif x > 3:\n    print(\"x is greater than 3\")",
+      "output": "\nx is greater than 3\n",
+      "notes": "\n- الشرط بيتكتب بعد if ولازم ينتهي بنقطتين `:`.\n- لازم نكتب الكود اللي بعد if بمسافة بادئة (Indentation).\n",
+      "question": {
+        "type": "multiple",
+        "text": "ماذا يحدث إذا كان الشرط False؟",
+        "options": ["ينفذ الكود", "يُطبع خطأ", "يتجاهل الكود", "يكرر نفسه"],
+        "correct": "يتجاهل الكود",
+        "explanation": "لو الشرط False، بايثون بيتخطى الكود اللي تحت if."
+      }
+    },
+    {
+      "title": "elif و else",
+      "subtitle": "التفرع بين عدة حالات",
+      "explanation": "\nتقدر تستخدم `elif` لما يكون عندك أكتر من شرط.\nوتستخدم `else` لو كل الشروط فشلت.\n\nالصيغة:\n```\nif شرط1:\n    كود1\nelif شرط2:\n    كود2\nelse:\n    كود افتراضي\n```",
+      "code": "x = 10\nif x < 5:\n    print(\"Less than 5\")\nelif x == 10:\n    print(\"Equal to 10\")\nelse:\n    print(\"Greater than 5 but not 10\")",
+      "output": "Equal to 10\n",
+      "notes": "\n- ممكن تضيف عدد غير محدود من (elif).\n  -  (else) بتتنفذ فقط لو كل الشروط قبلها False.",
+      "question": {
+        "type": "multiple",
+        "text": "كم مرة يمكن استخدام elif؟",
+        "options": ["مرة واحدة", "مرتين", "عدد غير محدود", "ماينفعش نستخدمها"],
+        "correct": "عدد غير محدود",
+        "explanation": "تقدر تستخدم elif قد ما تحب، حسب الحاجة."
+      }
+    },
+    {
+      "title": "المقارنات في الشرط",
+      "subtitle": "علامات المقارنة اللي بنستخدمها في if",
+      "explanation": "\nالشرط في if لازم يرجع قيمة Boolean (صح أو خطأ).\nأشهر رموز المقارنة:\n\n- `==` : يساوي\n- `!=` : لا يساوي\n- `>`  : أكبر من\n- `<`  : أصغر من\n- `>=` : أكبر من أو يساوي\n- `<=` : أصغر من أو يساوي",
+      "code": "x = 8\nif x != 5:\n    print(\"x is not equal to 5\")",
+      "output": "x is not equal to 5\n",
+      "notes": "\n- خد بالك ما تخلطش بين = (إسناد) و == (مقارنة).\n",
+      "question": {
+        "type": "multiple",
+        "text": "أي من التالي صحيح؟\nلو x = 4، فإن x == 4 تكون:",
+        "options": ["False", "Error", "True", "None"],
+        "correct": "True",
+        "explanation": "لأن x فعلاً تساوي 4، فالمقارنة بترجع True."
+      }
+    },
+    {
+      "title": "استخدام and و or",
+      "subtitle": "شروط مركبة داخل if",
+      "explanation": "\nتقدر تجمع أكتر من شرط باستخدام:\n- `and`: لازم الشرطين يكونوا True\n- `or`: يكفي واحد منهم يكون True\n\nمثال:",
+      "code": "x = 7\ny = 3\nif x > 5 and y < 5:\n    print(\"Both conditions are True\")",
+      "output": "Both conditions are True\n",
+      "notes": "\n- استخدم () لو الشرط معقد عشان توضح الترتيب.\n- `not` كمان ممكن تعكس القيمة: `not True` = False.",
+      "question": {
+        "type": "multiple",
+        "text": "متى تكون الجملة التالية True؟\n`(x > 5 or x == 5)`",
+        "options": [
+          "إذا x أقل من 5",
+          "إذا x أكبر من أو يساوي 5",
+          "دايمًا False",
+          "مستحيل تتنفذ"
+        ],
+        "correct": "إذا x أكبر من أو يساوي 5",
+        "explanation": "`or` معناها واحد من الشرطين يكفي يكون True."
+      }
+    },
+    {
+      "title": "القيم Truthy و Falsy في if",
+      "subtitle": "إزاي بايثون بتفهم الشرط لوحده حتى بدون مقارنة",
+      "explanation": "\nفي بايثون، مش لازم تكتب شرط بشكل صريح زي `x > 0`.\nأي قيمة تقدر تتقيم في if كـ True أو False.\n\n## القيم اللي تعتبر False (Falsy):\n- `None`\n- `False`\n- `0`, `0.0`\n- `''` (سلسلة فارغة)\n- `[]`, `{}`, `()` (قوائم ومجموعات فاضية)\n\nكل القيم التانية تعتبر True (Truthy).",
+      "code": "name = \"\"\nif name:\n    print(\"Hello\")\nelse:\n    print(\"Name is empty\")",
+      "output": "Name is empty\n",
+      "notes": "\n- ده مفيد لما تتحقق من وجود بيانات.\nمثال: `if items:` لو فيها عناصر، يتنفذ الشرط.",
+      "question": {
+        "type": "multiple",
+        "text": "ما نتيجة الكود التالي؟\nx = []\nif x:\n    print(\"فيه عناصر\")\nelse:\n    print(\"فاضي\")",
+        "options": ["فيه عناصر", "فاضي", "Error", "مافيش مخرجات"],
+        "correct": "فاضي",
+        "explanation": "لأن القائمة فاضية، وده يعتبر Falsy."
+      }
+    },
+    {
+      "title": "استخدام if مع input",
+      "subtitle": "نتفاعل مع المستخدم ونتحقق من إدخاله",
+      "explanation": "\nممكن نطلب من المستخدم إدخال بيانات، ونفحصها باستخدام if.\ninput بيرجع نص، فلو هنقارن أرقام لازم نحول بـ int().",
+      "code": "name = input(\"Enter your name: \")\nif name == \"Ahmed\":\n    print(\"Hello Ahmed!\")\nelse:\n    print(\"Welcome!\")",
+      "output": "(depends on user input)\n",
+      "notes": "\n- input دايمًا بيرجع نص (string)، حتى لو كتب رقم.\n- استخدم int(input(...)) لو محتاج رقم.",
+      "question": {
+        "type": "multiple",
+        "text": "ما نوع القيمة الراجعة من input()؟",
+        "options": ["int", "bool", "str", "float"],
+        "correct": "str",
+        "explanation": "input بيرجع نص، فلازم تحوّله لو عاوز رقم."
+      }
+    },
+    {
+      "title": "if متداخلة (Nested if)",
+      "subtitle": "إزاي نحط شرط داخل شرط",
+      "explanation": "\nتقدر تحط if جوه if، وده بنسميه if متداخلة.\nمفيد لما يكون القرار التاني معتمد على الشرط الأول.",
+      "code": "x = 10\nif x > 5:\n    if x < 20:\n        print(\"x is between 5 and 20\")",
+      "output": "x is between 5 and 20\n",
+      "notes": "\n- كل if داخلية لازم يكون ليها Indentation زيادة.\n- حاول ما تكثرش التداخل عشان الكود مايبقاش معقد.",
+      "question": {
+        "type": "multiple",
+        "text": "هل هذا الكود صحيح؟\nif x > 0:\nprint(\"نعم\")",
+        "options": ["نعم", "لا، بسبب التنسيق", "لا، شرط خطأ", "يحتاج else"],
+        "correct": "لا، بسبب التنسيق",
+        "explanation": "لازم يكون فيه مسافة بادئة تحت if (indentation)."
+      }
+    },
+    {
+      "title": "التعبير الشرطي المختصر",
+      "subtitle": "لو عاوز تكتب شرط بسيط في سطر واحد",
+      "explanation": "\nالتعبير الشرطي المختصر اسمه (Ternary Operator)\nوبيكون بصيغة:\n\n code1 if (condition) else code2 \n\nمفيد لو عندك شرط بسيط وعاوز تختصر الكود.",
+      "code": "age = 16\nstatus = \"Adult\" if age >= 18 else \"Minor\"\nprint(status)",
+      "output": "Minor\n",
+      "notes": "\n- استخدمه للحالات البسيطة.\n- مابنصحش تستخدمه مع شروط معقدة.",
+      "question": {
+        "type": "multiple",
+        "text": "ما نتيجة الكود التالي؟\nx = 5\nmsg = \"كبير\" if x > 10 else \"صغير\"\nprint(msg)",
+        "options": ["كبير", "صغير", "خطأ", "مافيش مخرجات"],
+        "correct": "صغير",
+        "explanation": "x مش أكبر من 10، فبتتنفذ القيمة بعد else."
+      }
+    }
   ]
 }

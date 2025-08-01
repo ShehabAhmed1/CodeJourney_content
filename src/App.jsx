@@ -217,9 +217,9 @@ const SlideLayout = ({
 
         {/* Output */}
         {output && (
-          <div className="bg-blue-50 border border-blue-200 p-4 rounded-md text-sm text-blue-800 whitespace-pre-line">
+          <div className="bg-blue-50 border border-blue-200 p-4 rounded-md text-sm text-blue-800 whitespace-pre-line ">
             <strong>نتيجة الكود:</strong>
-            <div className="bg-gray-900 text-gray-200 text-left p-4 border-2 rounded-lg">
+            <div className="bg-gray-900 text-gray-200 text-left p-4 border-2 rounded-lg w-56 sm:w-full overflow-hidden">
               {output}
             </div>
           </div>
@@ -227,14 +227,14 @@ const SlideLayout = ({
 
         {/* Notes */}
         {notes && (
-          <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+          <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400 ">
             <div className="text-yellow-800 font-semibold mb-2">💡 مهم:</div>
-            <div className="text-yellow-700">{notes}</div>
+            <div className="text-yellow-700 whitespace-pre-line">{notes}</div>
           </div>
         )}
 
         {/* Question */}
-        {question && (
+        {/* {question && (
           <div className=" p-4 rounded-md space-y-4 border-2 border-green-300">
             <p className="font-semibold text-gray-800">{question.text}</p>
             <ul className="space-y-2">
@@ -254,7 +254,7 @@ const SlideLayout = ({
               </div>
             )}
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
