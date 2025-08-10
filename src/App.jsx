@@ -207,8 +207,8 @@ const SlideLayout = ({
 
         {/* Code Example */}
         {code && (
-          <div dir="ltr">
-            <div className="bg-gray-900 rounded-lg p-6 text-green-400 font-mono text-sm whitespace-pre-wrap text-left leading-loose">
+          <div dir="ltr" className="whitespace-pre-line">
+            <div className="bg-gray-900 rounded-lg p-6 text-green-400 font-mono text-sm whitespace-pre-line text-left leading-loose">
               <div className="text-gray-400 mb-2"># مثال على الكود</div>
               {code}
             </div>
