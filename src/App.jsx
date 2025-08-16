@@ -7,7 +7,7 @@ import "./App.css";
 import Data from "./assets/Data.json";
 
 const App = () => {
-  const [lec, setLec] = useState(Data["lec2"]);
+  const [lec, setLec] = useState(Data["lec1"]);
   const [currentSlideNum, setCurrentSlideNum] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(lec[0]);
   const [showsider, setShowSider] = useState(false);
@@ -208,10 +208,12 @@ const SlideLayout = ({
         {/* Code Example */}
         {code && (
           <div dir="ltr" className="whitespace-pre-line">
-            <div className="bg-gray-900 rounded-lg p-6 text-green-400 font-mono text-sm whitespace-pre-line text-left leading-loose">
-              <div className="text-gray-400 mb-2"># مثال على الكود</div>
-              {code}
-            </div>
+            {" "}
+            <pre className="bg-gray-900 rounded-lg p-6 text-green-400 font-mono text-sm whitespace-pre-line text-left leading-loose">
+              {" "}
+              <div className="text-gray-400 mb-2"># مثال على الكود</div>{" "}
+              <code>{code}</code>{" "}
+            </pre>{" "}
           </div>
         )}
 
@@ -219,7 +221,10 @@ const SlideLayout = ({
         {output && (
           <div className="bg-blue-50 border border-blue-200 p-4 rounded-md text-sm text-blue-800 whitespace-pre-line ">
             <strong>نتيجة الكود:</strong>
-            <div className="bg-gray-900 text-gray-200 text-left p-4 border-2 rounded-lg w-56 sm:w-full overflow-hidden">
+            <div
+              dir="ltr"
+              className="bg-gray-900 text-gray-200 text-left p-4 border-2 rounded-lg w-56 sm:w-full overflow-hidden"
+            >
               {output}
             </div>
           </div>
