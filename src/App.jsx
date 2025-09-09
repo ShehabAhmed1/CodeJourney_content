@@ -7,7 +7,7 @@ import "./App.css";
 import Data from "./assets/Data.json";
 
 const App = () => {
-  const [lec, setLec] = useState(Data["lec1"]);
+  const [lec, setLec] = useState(Data["level1"]["lec1"]);
   const [currentSlideNum, setCurrentSlideNum] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(lec[0]);
   const [showsider, setShowSider] = useState(false);
@@ -44,6 +44,7 @@ const App = () => {
 
   return (
     <section className="App bg-gray-900 min-h-screen pb-10">
+      {/* Mobile Menu Toggle */}
       <div className="fixed top-2 left-1 text-gray-100 bg-gray-900 p-1 rounded-full md:hidden">
         {showsider ? (
           <X onClick={() => setShowSider(false)} />
@@ -51,12 +52,15 @@ const App = () => {
           <Menu onClick={() => setShowSider(true)} />
         )}
       </div>
+
       {/* Header */}
       <Header
         lec={lec}
         setCurrentSlide={setCurrentSlide}
         currentSlideNum={currentSlideNum}
       />
+
+      {/* Main Content */}
       <div className="main-container">
         <div className="session-content flex gap-4 py-10 ">
           <div className="w-4/3">
@@ -72,12 +76,15 @@ const App = () => {
               title={currentSlide.title}
               subtitle={currentSlide.subtitle}
               explanation={currentSlide.explanation}
+              img={currentSlide.img}
               code={currentSlide.code}
               output={currentSlide.output}
               notes={currentSlide.notes}
               question={currentSlide.question}
             />
           </div>
+
+          {/* Sidebar */}
           <Sidebar
             allLec={Data}
             setLec={setLec}
@@ -92,6 +99,9 @@ const App = () => {
   );
 };
 
+{
+  /* Header Component */
+}
 const Header = ({ currentSlideNum, lec, setCurrentSlide }) => {
   return (
     <div className="bg-gray-900 shadow-sm border-b border-gray-200 px-6 py-4 flex items-center flex-col md:flex-row gap-8 justify-between">
@@ -134,6 +144,9 @@ const Header = ({ currentSlideNum, lec, setCurrentSlide }) => {
   );
 };
 
+{
+  /* Navigation Component */
+}
 const Navigate = ({ nextSlide, prevSlide, lec, currentSlideNum }) => {
   return (
     <div className=" px-4 py-8 mb-4 bg-gray-900">
@@ -180,10 +193,14 @@ const Navigate = ({ nextSlide, prevSlide, lec, currentSlideNum }) => {
   );
 };
 
+{
+  /* Slide Layout Component */
+}
 const SlideLayout = ({
   title,
   subtitle,
   explanation,
+  img,
   code,
   output,
   notes,
@@ -201,8 +218,13 @@ const SlideLayout = ({
         </div>
 
         {/* Explanation */}
-        <div className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-          {explanation}
+        <div className="text-lg text-gray-700 leading-relaxed whitespace-pre-line flex flex-col gap-1">
+          <div>{explanation}</div>
+          {img && (
+            <div>
+              <img src={img} alt={title} className="w-full md:w-1/2 mx-auto" />
+            </div>
+          )}
         </div>
 
         {/* Code Example */}
