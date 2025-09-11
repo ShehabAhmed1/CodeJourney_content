@@ -12,7 +12,7 @@ export default function Sidebar({
 
   return (
     <aside
-      className={`border-2 border-r-0 md:border-r-2 rounded-tl-xl rounded-bl-xl md:rounded-r-xl border-gray-500  bg-gray-900 shadow-sm p-6 w-3/4 md:w-1/4  transition-all duration-300 ease-in-out ${
+      className={`border-2 border-r-0 md:border-r-2 rounded-tl-xl overflow-auto rounded-bl-xl md:rounded-r-xl border-gray-500  bg-gray-900 shadow-sm p-6 w-3/4 md:w-1/4  transition-all duration-300 ease-in-out ${
         showSidebar ? "right-0" : "-right-full"
       } fixed md:relative md:right-0 top-0  h-screen  md:h-auto z-50`}
     >
